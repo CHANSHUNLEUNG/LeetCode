@@ -1,9 +1,8 @@
-package Questions.DynamicProgramming.question123;
+package Questions.DynamicProgramming.question188;
 
 public class MaxProfit {
-    public int maxProfit(int[] prices) {
+    public int maxProfit(int k, int[] prices) {
         int days = prices.length;
-        int k = 2;
         if (k >= days / 2) {
             int maxProfix = 0;
             for (int day = 1; day < days; day++) {
@@ -15,10 +14,10 @@ public class MaxProfit {
         }
         int[][] maxProfix = new int[k + 1][days];
         for (int transaction = 1; transaction <= k; transaction++) {
-            int localMax = maxProfix[transaction - 1][0] - prices[0];
+            int maxRemaining = -prices[0];
             for (int day = 1; day < days; day++) {
-                maxProfix[transaction][day] = Math.max(maxProfix[transaction][day - 1], prices[day] + localMax);
-                localMax = Math.max(localMax, maxProfix[transaction - 1][day] - prices[day]);
+                maxProfix[transaction][day] = Math.max(maxProfix[transaction][day-1], maxRemaining + prices[day]);
+                maxRemaining = Math.max(maxRemaining,maxProfix[transaction-1][day] - prices[day]);
             }
         }
         return maxProfix[k][days - 1];
