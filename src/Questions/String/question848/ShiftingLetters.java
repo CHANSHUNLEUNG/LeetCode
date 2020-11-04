@@ -12,6 +12,7 @@ public class ShiftingLetters {
             answer = afterShift(S.charAt(index), count) + answer;
 
         }
+        StringBuilder test = new StringBuilder();
         return answer;
     }
 

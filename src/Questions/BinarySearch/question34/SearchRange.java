@@ -26,4 +26,8 @@ public class SearchRange {
         return left;
     }
 
+    public static void main(String[] argv) {
+
+    }
+
 }

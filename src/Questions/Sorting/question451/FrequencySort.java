@@ -30,4 +30,8 @@ public class FrequencySort {
         }
         return stringBuilder.toString();
     }
+    public static void main(String[] argv){
+        int[] test = new int[]{1,2,3,3,3,3,4,5};
+        System.out.println(Arrays.binarySearch(test,3));
+    }
 }
